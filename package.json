@@ -1,0 +1,46 @@
+{
+    "name": "ava-wrapper-spl",
+    "version": "0.0.1",
+    "description": "A wrapper for ava to test software product lines",
+    "main": "index.js",
+    "scripts": {
+        "test": "ava"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/125m125/ava-wrapper-spl.git"
+    },
+    "keywords": [
+        "ava",
+        "spl",
+        "software-product-line"
+    ],
+    "author": "125m125",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/125m125/ava-wrapper-spl/issues"
+    },
+    "homepage": "https://github.com/125m125/ava-wrapper-spl#readme",
+    "devDependencies": {
+        "@babel/cli": "7.0.0-beta.40",
+        "@babel/core": "7.0.0-beta.40",
+        "@babel/preset-env": "7.0.0-beta.40",
+        "@babel/register": "7.0.0-beta.40",
+        "eslint": "^4.18.0",
+        "sinon": "^4.3.0"
+    },
+    "dependencies": {
+        "ava": "1.0.0-beta.2",
+        "rollup-plugin-spl": "0.0.5",
+        "splconfigurator": "0.0.3",
+        "underscore": "^1.8.3"
+    },
+    "ava": {
+        "require": [
+            "@babel/register"
+        ],
+        "files": [
+            "test/**/*Test.js"
+        ]
+    }
+}
