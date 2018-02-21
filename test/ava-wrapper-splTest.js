@@ -19,9 +19,24 @@ var configs = {
     },
 };
 
+test("all sources are passed to the test case", t => {
+    var mockAva = function(name, f, ...args) {
+        f(null, ...args);
+    };
+    var uut = new avaWrapperSpl("./test/resources/miniCalc.json", configs, {
+        calc: "./test/resources/miniCalc.js",
+        other: "./test/resources/other.js",
+    }, mockAva);
+
+    return uut(["PLUS_simple", "MINUS_simple", ], "test", (t2, sources) => {
+        t.is(typeof sources.calc, "function");
+        t.is(typeof sources.other, "function");
+    });
+});
+
 test("test runs minimal and maximal positive selections", t => {
     var mockAva = function(name, f, ...args) {
-        f(name, ...args);
+        f(null, ...args);
     };
     var uut = new avaWrapperSpl("./test/resources/miniCalc.json", configs, {
         calc: "./test/resources/miniCalc.js",
