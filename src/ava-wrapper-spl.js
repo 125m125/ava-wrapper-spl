@@ -44,11 +44,11 @@ function createContext(model, config, sources, preference) {
 
 avaWrapperSPL.prototype.test = function(configs, title, implementation, ...args) {
     if (configs instanceof Array) {
-        return Promise.all(configs.map(config => {
-            config = this.configurations[config];
-            if (!config) throw new Error("unknown configuration: " + config);
+        return Promise.all(configs.map(configName => {
+            var config = this.configurations[configName];
+            if (!config) throw new Error("unknown configuration: " + configName);
             return Promise.all(_.map(config, (value, key) => {
-                return value.then(v => this.ava(title, t => {
+                return value.then(v => this.ava(configName + "-" + key + ": " + title, t => {
                     implementation(t, v, ...args);
                 }, key, ...args));
             }));

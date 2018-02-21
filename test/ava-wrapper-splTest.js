@@ -2,27 +2,28 @@ import sinon from "sinon";
 import test from "ava";
 import avaWrapperSpl from "../src/ava-wrapper-spl";
 
+var configs = {
+    PLUS_simple: {
+        PLUS: true,
+        INCREMENT_A: false,
+        // INCREMENT_B: false, 
+    },
+    MINUS_simple: {
+        MINUS: true,
+        INCREMENT_A: false,
+        INCREMENT_B: false,
+        SWAP: false,
+    },
+    MINUS_complex: {
+        MINUS: true,
+    },
+};
 
 test("test runs minimal and maximal positive selections", t => {
     var mockAva = function(name, f, ...args) {
         f(name, ...args);
     };
-    var uut = new avaWrapperSpl("./test/resources/miniCalc.json", {
-        PLUS_simple: {
-            PLUS: true,
-            INCREMENT_A: false,
-            // INCREMENT_B: false, 
-        },
-        MINUS_simple: {
-            MINUS: true,
-            INCREMENT_A: false,
-            INCREMENT_B: false,
-            SWAP: false,
-        },
-        MINUS_complex: {
-            MINUS: true,
-        },
-    }, {
+    var uut = new avaWrapperSpl("./test/resources/miniCalc.json", configs, {
         calc: "./test/resources/miniCalc.js",
         other: "./test/resources/other.js",
     }, mockAva);
@@ -31,9 +32,7 @@ test("test runs minimal and maximal positive selections", t => {
         max = 0;
 
     return uut(["PLUS_simple", ], "test", (t, sources) => {
-        console.log(sources);
         var result = sources.calc(2, 3);
-        console.log(result);
         if (result == 5)
             ++min;
         if (result == 6)
@@ -42,4 +41,23 @@ test("test runs minimal and maximal positive selections", t => {
         t.is(min, 1);
         t.is(max, 1);
     });
+});
+
+test("each subtest gets a unique name containing the original name, the configuration name, and the autocompletion type", t => {
+    var names = {};
+    var mockAva = function(name, f, ...args) {
+        t.falsy(names[name]);
+        names[name] = true;
+
+        t.true(name.indexOf("testName") >= 0);
+        t.true(name.indexOf("PLUS_simple") >= 0 || name.indexOf("MINUS_simple") >= 0);
+        t.true(name.indexOf("min") >= 0 || name.indexOf("max") >= 0);
+    };
+    var uut = new avaWrapperSpl("./test/resources/miniCalc.json", configs, {
+        calc: "./test/resources/miniCalc.js",
+        other: "./test/resources/other.js",
+    }, mockAva);
+
+
+    return uut(["PLUS_simple", "MINUS_simple", ], "testName");
 });
