@@ -24,7 +24,7 @@
     "devDependencies": {
         "@babel/cli": "7.0.0-beta.40",
         "@babel/core": "7.0.0-beta.40",
-        "@babel/preset-env": "7.0.0-beta.40",
+        "@babel/preset-env": "7.0.0-beta.42",
         "@babel/register": "7.0.0-beta.40",
         "eslint": "^4.18.0",
         "sinon": "^4.3.0"
