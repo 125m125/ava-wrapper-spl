@@ -33,7 +33,7 @@
         "ava": "1.0.0-beta.3",
         "rollup-plugin-spl": "0.0.5",
         "splconfigurator": "0.0.3",
-        "underscore": "^1.8.3"
+        "underscore": "^1.9.0"
     },
     "ava": {
         "require": [
