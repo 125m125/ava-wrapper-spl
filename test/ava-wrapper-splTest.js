@@ -1,4 +1,3 @@
-import sinon from "sinon";
 import test from "ava";
 import avaWrapperSpl from "../src/ava-wrapper-spl";
 
@@ -60,7 +59,7 @@ test("test runs minimal and maximal positive selections", t => {
 
 test("each subtest gets a unique name containing the original name, the configuration name, and the autocompletion type", t => {
     var names = {};
-    var mockAva = function(name, f, ...args) {
+    var mockAva = function(name) {
         t.falsy(names[name]);
         names[name] = true;
 
