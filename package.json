@@ -22,18 +22,18 @@
     },
     "homepage": "https://github.com/125m125/ava-wrapper-spl#readme",
     "devDependencies": {
-        "@babel/cli": "7.0.0-beta.47",
-        "@babel/core": "7.0.0-beta.47",
-        "@babel/preset-env": "7.0.0-beta.47",
-        "@babel/register": "7.0.0-beta.47",
-        "eslint": "^5.5.0",
-        "sinon": "^6.3.3"
+        "@babel/cli": "7.1.2",
+        "@babel/core": "7.1.2",
+        "@babel/preset-env": "7.1.0",
+        "@babel/register": "7.0.0",
+        "eslint": "5.6.1",
+        "sinon": "6.3.4"
     },
     "dependencies": {
         "ava": "1.0.0-beta.4",
-        "rollup-plugin-spl": "0.0.5",
-        "splconfigurator": "0.0.3",
-        "underscore": "^1.9.1"
+        "rollup-plugin-spl": "0.0.6",
+        "splconfigurator": "0.0.4",
+        "underscore": "1.9.1"
     },
     "ava": {
         "require": [
