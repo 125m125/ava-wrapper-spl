@@ -4,7 +4,8 @@
     "description": "A wrapper for ava to test software product lines",
     "main": "index.js",
     "scripts": {
-        "test": "ava"
+        "test": "ava",
+        "checkstyle": "eslint \"src/**/*.js\" \"test/**/*Test.js\""
     },
     "repository": {
         "type": "git",
