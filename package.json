@@ -27,7 +27,7 @@
         "@babel/core": "7.1.2",
         "@babel/preset-env": "7.1.0",
         "@babel/register": "7.0.0",
-        "eslint": "5.7.0",
+        "eslint": "5.8.0",
         "sinon": "7.0.0"
     },
     "dependencies": {
