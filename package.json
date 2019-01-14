@@ -31,7 +31,7 @@
         "sinon": "7.2.2"
     },
     "dependencies": {
-        "ava": "1.0.1",
+        "ava": "1.1.0",
         "rollup-plugin-spl": "0.0.6",
         "splconfigurator": "0.0.4",
         "underscore": "1.9.1"
