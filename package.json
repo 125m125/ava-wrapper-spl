@@ -24,7 +24,7 @@
     "homepage": "https://github.com/125m125/ava-wrapper-spl#readme",
     "devDependencies": {
         "@babel/cli": "7.4.4",
-        "@babel/core": "7.4.4",
+        "@babel/core": "7.4.5",
         "@babel/preset-env": "7.4.4",
         "@babel/register": "7.4.4",
         "eslint": "5.16.0",
