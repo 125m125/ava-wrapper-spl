@@ -23,7 +23,7 @@
     },
     "homepage": "https://github.com/125m125/ava-wrapper-spl#readme",
     "devDependencies": {
-        "@babel/cli": "7.12.8",
+        "@babel/cli": "7.12.10",
         "@babel/core": "7.12.9",
         "@babel/preset-env": "7.12.11",
         "@babel/register": "7.12.1",
